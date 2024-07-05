@@ -1,0 +1,573 @@
+{
+  "Version": "1.4",
+  "Expires": "2024-06-01",
+  "ToRemove": [
+    {
+      "Name": "my-bad-header",
+      "Description": "this is a test !",
+      "Links": "https://developer.mozilla.org/dummy-bad-url-url-for-testing-purpose"
+    },
+    {
+      "Name": "my-bad-header",
+      "Description": "this is a test !",
+      "Links": "https://www.dummy-bad-url-url-for-testing-purpose.fake/dummy-url"
+    },
+    {
+      "Name": "my-bad-header",
+      "Description": "this is a test !",
+      "Links": "https://127.0.0.1/dummy-bad-url-url-for-testing-purpose"
+    },
+    {
+      "Name": "Liferay-Portal",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "Powered-By",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "Product",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "Server",
+      "Description": "Avoid overly-detailed Server values, as they can reveal information that may make it (slightly) easier for attackers to exploit known security holes.",
+      "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server"
+    },
+    {
+      "Name": "SourceMap",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-AspNet-Version",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-AspNetMvc-Version",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-CF-Powered-By",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-CMS",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Content-Encoded-By",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Envoy-Upstream-Service-Time",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Framework",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Generated-By",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Generator",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Php-Version",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Powered-By",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Powered-By-Plesk",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Powered-CMS",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Redirect-By",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Server-Powered-By",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-SourceFiles",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-SourceMap",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "X-Turbo-Charged-By",
+      "Description": "",
+      "Links": ""
+    },
+    {
+      "Name": "Feature-Policy",
+      "Description": "Consider to replace 'Feature-Policy' by 'Permissions-Policy'",
+      "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Permissions_Policy"
+    },
+    {
+      "Name": "Expect-CT",
+      "Description": "(Partialy Deprecated / Though some browsers might still support it, it may have already been removed from the relevant web standards, may be in the process of being dropped, or may only be kept for compatibility purposes) The Expect-CT header lets sites opt in to reporting and/or enforcement of Certificate Transparency requirements. Certificate Transparency (CT) aims to prevent the use of misissued certificates for that site from going unnoticed.",
+      "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Expect-CT#browser_compatibility|https://chromestatus.com/feature/6244547273687040"
+    }
+  ],
+  "ToVerify": [
+    {
+      "Name": "Cache-Control",
+      "SuggestedValue": "must-revalidate, max-age=3600",
+      "RequiredValues": [
+        {
+          "Value": "max-age=\\d+",
+          "Label": "max-age=duration",
+          "Description": "The Cache-Control HTTP header field holds directives (instructions) - in both requests and responses - that control caching in browsers and shared caches (e.g. Proxies, CDNs) : The max-age=N response directive indicates that the response remains fresh until N seconds after the response is generated.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#directives"
+        }
+      ],
+      "RecommandedValues": [
+        {
+          "Value": "(public|private|must-revalidate)",
+          "Label": "public or private or must-revalidate",
+          "Description": "The Cache-Control HTTP header field holds directives (instructions), in both requests and responses, that control caching in browsers and shared caches (e.g. Proxies, CDNs). The no-store response directive indicates that any caches of any kind (private or shared) should not store this response. The private response directive indicates that the response can be stored only in a private cache (e.g. local caches in browsers).The must-understand response directive indicates that a cache should store the response only if it understands the requirements for caching based on status code.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#directives"
+        }
+      ],
+      "NotRecommandedValues": [
+        {
+          "Value": "(max-age=0|no-store|no-cache)",
+          "Label": "max-age=0 or no-store or no-cache",
+          "Description": "This directive could force relload every request without any cache.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control#directives"
+        }
+      ]
+    },
+    {
+      "Name": "Content-Security-Policy",
+      "SuggestedValue": "default-src 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests;",
+      "RequiredValues": [
+        {
+          "Value": "default-src",
+          "Label": "default-src",
+          "Description": "The HTTP Content-Security-Policy (CSP) default-src directive serves as a fallback for the other CSP fetch directives.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/default-src"
+        },
+        {
+          "Value": "object-src",
+          "Label": "object-src",
+          "Description": "The HTTP Content-Security-Policy object-src directive specifies valid sources for the <object>, <embed>, and <applet> elements.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/object-src"
+        },
+        {
+          "Value": "frame-ancestors",
+          "Label": "frame-ancestors",
+          "Description": "The HTTP Content-Security-Policy frame-ancestors directive specifies valid parents that may embed a page using <frame>, <iframe>, <object>, <embed>, or <applet>.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors"
+        },
+        {
+          "Value": "script-src",
+          "Label": "script-src",
+          "Description": "The HTTP Content-Security-Policy (CSP) script-src directive specifies valid sources for JavaScript. This includes not only URLs loaded directly into <script> elements, but also things like inline script event handlers (onclick) and XSLT stylesheets which can trigger script execution.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src"
+        },
+        {
+          "Value": "form-action",
+          "Label": "form-action",
+          "Description": "The HTTP Content-Security-Policy (CSP) form-action directive restricts the URLs which can be used as the target of form submissions from a given context.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/form-action"
+        },
+        {
+          "Value": "upgrade-insecure-requests",
+          "Label": "upgrade-insecure-requests",
+          "Description": "The HTTP Content-Security-Policy (CSP) upgrade-insecure-requests directive instructs user agents to treat all of a site's insecure URLs (those served over HTTP) as though they have been replaced with secure URLs (those served over HTTPS). This directive is intended for web sites with large numbers of insecure legacy URLs that need to be rewritten.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests"
+        }
+      ],
+      "NotRecommandedValues": [
+        {
+          "Value": "default-src[^;]*\\s+\\*(\\s+|;|$)",
+          "Label": "default-src *",
+          "Description": "This directive allow any sources for all missing directives (scripst, objects,...)",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/default-src"
+        },
+        {
+          "Value": "script-src[^;]+\\'unsafe-inline'",
+          "Label": "script-src 'unsafe-inline'",
+          "Description": "This directive allow any inline script. consider using 'nonce' attribute or sha256 hash",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script"
+        },
+        {
+          "Value": "script-src[^;]+\\'unsafe-eval'",
+          "Label": "script-src 'unsafe-eval'",
+          "Description": "The 'unsafe-eval' source expression controls several script execution methods that create code from strings.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_eval_expressions"
+        },
+        {
+          "Value": "block-all-mixed-content",
+          "Label": "block-all-mixed-content",
+          "Description": "Deprecated: This feature is no longer recommended. Consider using upgrade-insecure-requests. Though some browsers might still support it, it may have already been removed from the relevant web standards, may be in the process of being dropped, or may only be kept for compatibility purposes.The upgrade-insecure-requests directive is evaluated before block-all-mixed-content. If the former is set, the latter does nothing, so set one directive or the other – not both, unless you want to force HTTPS on older browsers that do not force it after a redirect to HTTP. This directive is marked as obsolete in the specification: all mixed content is now blocked if it can't be autoupgraded",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/block-all-mixed-content"
+        }
+      ],
+      "ForbidenValues": [
+        {
+          "Value": "script-src([^;])*\\s+blob:(\\s+|;|$)",
+          "Label": "script-src blob:",
+          "Description": "This directive allow blob for all scripts",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src"
+        },
+        {
+          "Value": "object-src([^;])*\\s+blob:(\\s+|;|$)",
+          "Label": "object-src blob:",
+          "Description": "This directive allow blob for all <object>, <embed>, and <applet> elements ",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/object-src"
+        },
+        {
+          "Value": "script-src([^;])*\\s+\\*(\\s+|;|$)",
+          "Label": "script-src *",
+          "Description": "This directive allow any sources for all scripts",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src"
+        },
+        {
+          "Value": "object-src([^;])*\\s+\\*(\\s+|;|$)",
+          "Label": "object-src *",
+          "Description": "This directive allow any sources for all <object>, <embed>, and <applet> elements ",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/object-src"
+        },
+        {
+          "Value": "^(?=.*default-src[^;]*\\s+\\*(\\s*|\\s+[^;]*)+;)(?:(?!script-src).)+$",
+          "Label": "default-src * with no script-src directive",
+          "Description": "This directive allow any sources for all scripts",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src"
+        },
+        {
+          "Value": "^(?=.*default-src[^;]*\\s+\\*(\\s*|\\s+[^;]*)+;)(?:(?!object-src).)+$",
+          "Label": "default-src * with no object-src directive",
+          "Description": "This directive allow any sources for the <object>, <embed>, and <applet> elements ",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/object-src"
+        }
+      ]
+    },
+    {
+      "Name": "Cross-Origin-Embedder-Policy",
+      "SuggestedValue": "require-corp",
+      "RequiredValues": [
+        {
+          "Value": "require-corp",
+          "Label": "require-corp",
+          "Description": "The HTTP Cross-Origin-Embedder-Policy (COEP) response header prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using CORP or CORS).",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy"
+        }
+      ]
+    },
+    {
+      "Name": "Cross-Origin-Opener-Policy",
+      "SuggestedValue": "same-origin",
+      "RequiredValues": [
+        {
+          "Value": "(same-origin|same-origin-allow-popups)",
+          "Label": "same-origin or same-origin-allow-popups",
+          "Description": "he HTTP Cross-Origin-Opener-Policy (COOP) response header allows you to ensure a top-level document does not share a browsing context group with cross-origin documents. COOP will process-isolate your document and potential attackers can't access your global object if they were to open it in a popup, preventing a set of cross-origin attacks dubbed XS-Leaks.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy"
+        }
+      ]
+    },
+    {
+      "Name": "Cross-Origin-Resource-Policy",
+      "SuggestedValue": "same-origin",
+      "RequiredValues": [
+        {
+          "Value": "(same-origin|same-site)",
+          "Label": "same-origin or same-site",
+          "Description": "The HTTP Cross-Origin-Resource-Policy (CORP) response header conveys a desire that the browser blocks no-cors cross-origin/cross-site requests to the given resource. CORP header allows you to control the set of origins that are empowered to include a resource. It is a robust defense against attacks like Spectre, as it allows browsers to block a given response before it enters an attacker's process.",
+          "Links": ""
+        }
+      ]
+    },
+    {
+      "Name": "Permissions-Policy",
+      "SuggestedValue": "camera=(),display-capture=(),fullscreen=(),geolocation=(),microphone=(),web-share=()",
+      "SuggestedValueold": "camera=(),display-capture=(),fullscreen=(),geolocation=(),gyroscope=(),layout-animations=(self),legacy-image-formats=(self),magnetometer=(),microphone=(self),midi=(),oversized-images=(self),payment=(),picture-in-picture=(),publickey-credentials-get=(),speaker-selection=(),unoptimized-images=(self),unsized-media=(self),usb=(),screen-wake-lock=(),web-share=(),xr-spatial-tracking=()",
+      "NotRecommandedValues": [
+        {
+          "Value": "sync-xhr=\\(.*\\)",
+          "Label": "sync-xhr=([...])",
+          "Description": "Non-standard: This feature is non-standard and is not on a standards track. Do not use it on production sites facing the Web: it will not work for every user. There may also be large incompatibilities between implementations and the behavior may change in the future.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy/sync-xhr"
+        }
+      ],
+      "RecommandedValues": [
+        {
+          "Value": "camera=\\((self)?\\)",
+          "Label": "camera=(self or [empty])",
+          "Description": "The HTTP Permissions-Policy header camera directive controls whether the current document is allowed to use video input devices.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/camera"
+        },
+        {
+          "Value": "display-capture=\\((self)?\\)",
+          "Label": "display-capture=(self or [empty])",
+          "Description": "The HTTP Permissions-Policy header display-capture directive controls whether or not the document is permitted to use Screen Capture API, that is, getDisplayMedia() to capture the screen's contents",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/display-capture"
+        },
+        {
+          "Value": "fullscreen=\\((self)?\\)",
+          "Label": "fullscreen=(self or [empty])",
+          "Description": "The HTTP Permissions-Policy header fullscreen directive controls whether the current document is allowed to use Element.requestFullscreen(). By default, top-level documents and their same-origin child frames can request and enter fullscreen mode. This directive allows or prevents cross-origin frames from using fullscreen mode. This includes same-origin frames.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/fullscreen"
+        },
+        {
+          "Value": "geolocation=\\((self)?\\)",
+          "Label": "geolocation=(self or [empty])",
+          "Description": "The HTTP Permissions-Policy header geolocation directive controls whether the current document is allowed to use the Geolocation Interface.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/geolocation"
+        },
+        {
+          "Value": "web-share=\\((self)?\\)",
+          "Label": "web-share=(self or [empty])",
+          "Description": "The HTTP Permissions-Policy header web-share directive controls whether the current document is allowed to use the Navigator.share() method of the Web Share API to share text, links, images, and other content to arbitrary destinations of the user's choice.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/web-share"
+        },
+        {
+          "Value": "microphone=\\((self)?\\)",
+          "Label": "microphone=(self or [empty])",
+          "Description": "The HTTP Permissions-Policy header microphone directive controls whether the current document is allowed to use audio input devices.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/microphone"
+        }
+      ],
+      "Warnings": [
+        {
+          "Value": "sync-xhr=\\([^\\(]*\\)",
+          "Label": "sync-xhr=(...)",
+          "Description": "Non-standard: This feature is non-standard and is not on a standards track. Do not use it on production sites facing the Web: it will not work for every user. There may also be large incompatibilities between implementations and the behavior may change in the future.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Feature-Policy/sync-xhr"
+        },
+        {
+          "Value": "battery=\\([^\\(]*\\)",
+          "Label": "battery=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header battery directive controls whether the current document is allowed to gather information about the battery of the device through the BatteryManager interface obtained via Navigator.getBattery().",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/battery"
+        },
+        {
+          "Value": "accelerometer=\\([^\\(]*\\)",
+          "Label": "accelerometer=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header accelerometer directive controls whether the current document is allowed to gather information about the acceleration of the device through the Accelerometer interface",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/accelerometer|https://w3c.github.io/webappsec-permissions-policy/#permissions-policy-http-header-field"
+        },
+        {
+          "Value": "ambient-light-sensor=\\(\\)",
+          "Label": "ambient-light-sensor=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header ambient-light-sensor directive controls whether the current document is allowed to gather information about the amount of light in the environment around the device through the AmbientLightSensor interface.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/ambient-light-sensor"
+        },
+        {
+          "Value": "autoplay=\\([^\\(]*\\)",
+          "Label": "autoplay=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header autoplay directive controls whether the current document is allowed to autoplay media requested through the HTMLMediaElement interface. When this policy is enabled and there were no user gestures, the Promise returned by HTMLMediaElement.play() will reject with a DOMException. The autoplay attribute on <audio> and <video> elements will be ignored.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/autoplay"
+        },
+        {
+          "Value": "document-domain=\\([^\\(]*\\)",
+          "Label": "document-domain=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header document-domain directive controls whether the current document is allowed to set document.domain.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/document-domain"
+        },
+        {
+          "Value": "encrypted-media=\\([^\\(]*\\)",
+          "Label": "encrypted-media=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header encrypted-media directive controls whether the current document is allowed to use the Encrypted Media Extensions API (EME).",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/encrypted-media"
+        },
+        {
+          "Value": "gamepad=\\([^\\(]*\\)",
+          "Label": "gamepad=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header gamepad directive controls whether the current document is allowed to use the Gamepad API.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/gamepad"
+        },
+        {
+          "Value": "gyroscope=\\([^\\(]*\\)",
+          "Label": "gyroscope=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header gyroscope directive controls whether the current document is allowed to gather information about the orientation of the device through the Gyroscope interface.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/gyroscope"
+        },
+        {
+          "Value": "magnetometer=\\([^\\(]*\\)",
+          "Label": "magnetometer=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header magnetometer directive controls whether the current document is allowed to gather information about the orientation of the device through the Magnetometer interface.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/magnetometer"
+        },
+        {
+          "Value": "midi=\\([^\\(]*\\)",
+          "Label": "midi=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header midi directive controls whether the current document is allowed to use the Web MIDI API.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/midi"
+        },
+        {
+          "Value": "payment=\\([^\\(]*\\)",
+          "Label": "payment=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header field's payment directive controls whether the current document is allowed to use the Payment Request API.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/payment"
+        },
+        {
+          "Value": "picture-in-picture=\\([^\\(]*\\)",
+          "Label": "picture-in-picture=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header picture-in-picture directive controls whether the current document is allowed to play a video in a Picture-in-Picture mode",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/picture-in-picture"
+        },
+        {
+          "Value": "publickey-credentials-get=\\([^\\(]*\\)",
+          "Label": "publickey-credentials-get=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header publickey-credentials-get directive controls whether the current document is allowed to access the Web Authentication API to retrieve public-key credentials.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/publickey-credentials-get"
+        },
+        {
+          "Value": "serial=\\([^\\(]*\\)",
+          "Label": "serial=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header serial directive controls whether the current document is allowed to use the Web Serial API to communicate with serial devices, either directly connected via a serial port, or via USB or Bluetooth devices emulating a serial port.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/serial"
+        },
+        {
+          "Value": "usb=\\([^\\(]*\\)",
+          "Label": "usb=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header usb directive controls whether the current document is allowed to use the WebUSB API.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/usb"
+        },
+        {
+          "Value": "screen-wake-lock=\\([^\\(]*\\)",
+          "Label": "screen-wake-lock=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header screen-wake-lock directive controls whether the current document is allowed to use Screen Wake Lock API to indicate that the device should not dim or turn off the screen.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/screen-wake-lock"
+        },
+        {
+          "Value": "xr-spatial-tracking=\\([^\\(]*\\)",
+          "Label": "xr-spatial-tracking=(...)",
+          "Description": "Experimental : Check the Browser compatibility carefully before using this in production. The HTTP Permissions-Policy header xr-spatial-tracking directive controls whether the current document is allowed to use the WebXR Device API.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/xr-spatial-tracking"
+        }
+      ]
+    },
+    {
+      "Name": "Referrer-Policy",
+      "SuggestedValue": "no-referrer",
+      "RequiredValues": [
+        {
+          "Value": "(no-referrer|same-origin|origin|strict-origin|strict-origin-when-cross-origin)",
+          "Label": "no-referrer or same-origin or origin or strict-origin or strict-origin-when-cross-origin",
+          "Description": "The Referrer-Policy HTTP header controls how much referrer information (sent with the Referer header) should be included with requests",
+          "Links": "https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Referrer-Policy#directives"
+        }
+      ],
+      "NotRecommandedValues": [
+        {
+          "Value": "unsafe-url",
+          "Label": "unsafe-url",
+          "Description": "This value will leak potentially confidential information from HTTPS resource URLs to unsecured origins. Consider the consequences of this setting before using it",
+          "Links": "https://developer.mozilla.org/fr/docs/Web/HTTP/Headers/Referrer-Policy#directives"
+        }
+      ]
+    },
+    {
+      "Name": "Strict-Transport-Security",
+      "SuggestedValue": "max-age=31536000; includeSubDomains",
+      "RequiredValues": [
+        {
+          "Value": "max-age=\\d+",
+          "Label": "max-age=[at list 16 000 000 seconds]",
+          "Description": "The HTTP Strict-Transport-Security response header (often abbreviated as HSTS) informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security"
+        },
+        {
+          "Value": "includeSubDomains",
+          "Label": "includeSubDomains",
+          "Description": "The HTTP Strict-Transport-Security response header (often abbreviated as HSTS) informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security"
+        }
+      ],
+      "RecommandedValues": [
+        {
+          "Value": "max-age=(1[6-9]\\d{6}|[2-9]\\d{7}|\\d{9,})",
+          "Label": "max-age=[at least 16 000 000 seconds]",
+          "Description": "It is advisable to assign the max-age directive's value to be greater than 16 000 000 seconds (almost 180 days) and ideally to 31536000 (one year)",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security"
+        }
+      ]
+    },
+    {
+      "Name": "Access-Control-Allow-Origin",
+      "SuggestedValue": "[allowed origin]",
+      "RecommandedValues": [
+        {
+          "Value": ".+",
+          "Label": "[origin] or *",
+          "Description": "Access-Control-Allow-Origin specifies either a single origin which tells browsers to allow that origin to access the resource; or else - for requests without credentials - the '*' wildcard tells browsers to allow any origin to access the resource.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS"
+        }
+      ]
+    },
+    {
+      "Name": "X-Content-Type-Options",
+      "SuggestedValue": "nosniff",
+      "RequiredValues": [
+        {
+          "Value": "nosniff",
+          "Label": "nosniff",
+          "Description": "The X-Content-Type-Options response HTTP header is a marker used by the server to indicate that the MIME types advertised in the Content-Type headers should be followed and not be changed. The header allows you to avoid MIME type sniffing by saying that the MIME types are deliberately configured.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options"
+        }
+      ]
+    },
+    {
+      "Name": "X-Frame-Options",
+      "SuggestedValue": "deny",
+      "RequiredValues": [
+        {
+          "Value": "(deny|sameorigin)",
+          "Label": "deny or sameorigin",
+          "Description": "The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a <frame>, <iframe>, <embed> or <object>. Sites can use this to avoid click-jacking attacks, by ensuring that their content is not embedded into other sites.",
+          "Links": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options"
+        }
+      ]
+    },
+    {
+      "Name": "X-Permitted-Cross-Domain-Policies",
+      "SuggestedValue": "none",
+      "RequiredValues": [
+        {
+          "Value": "none",
+          "Label": "none",
+          "Description": "A cross-domain policy file is an XML document that grants a web client, such as Adobe Flash Player or Adobe Acrobat (though not necessarily limited to these), permission to handle data across domains. ",
+          "Links": "https://owasp.org/www-project-secure-headers/#x-permitted-cross-domain-policies|https://www.adobe.com/devnet-docs/acrobatetk/tools/AppSec/xdomain.html"
+        }
+      ]
+    }
+  ]
+}

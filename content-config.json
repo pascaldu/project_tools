@@ -1,0 +1,38 @@
+{
+  "Version": "1.4",
+  "Expires": "2024-06-01",
+  "Errors": [
+    {
+      "Value": "(?smi)<meta[^>]*\"[^\">]*(?P<Keyword>WordPress|Drupal|Joomla|ExpressionEngine|Typo3|MovableType|Magento|Concrete5|TextPattern|Alfresco|e107|Contao|CushyCMS|Plone|SPiP|Wix|PrestaShop|WooCommerce|Webflow|PageCloud|Unbounce|Webnode|Ghost|Weblium|Hubspot)[^\">]*\"[^>]*>",
+      "Label": "CMS engines in meta",
+      "Description": "Providing too much information in meta tags can be useful for hackers."
+    }
+  ],
+  "Warnings": [
+    {
+      "Value": "(?smi).{0,15}\\b(?P<Keyword>WordPress|Drupal|Joomla|ExpressionEngine|Typo3|MovableType|Magento|Concrete5|TextPattern|Alfresco|e107|Contao|CushyCMS|Plone|SPiP|Wix|PrestaShop|WooCommerce|Webflow|PageCloud|Unbounce|Webnode|Ghost|Weblium|Hubspot)\\b.{0,15}",
+      "Label": "CMS or keywords in html stream",
+      "Description": "Providing too much information in HTML stream can be useful for hackers."
+    },
+    {
+      "Value": "(?msi)(?:<script[^>]*>)(?:(?!</?script>).)*(?P<Keyword>eval\\s*\\()(?:(?!</?script>).)*(?:</script>)",
+      "Label": "eval usage",
+      "Description": "The eval function takes a string and passes it to the JavaScript compiler, then executes the resulting byte code."
+    },
+    {
+      "Value": "(?msi)(?:<script[^>]*>)(?:(?!</?script>).)*(?P<Keyword>(setInterval|setTimeout)\\s*\\()(?:(?!</?script>).)*(?:</script>)",
+      "Label": "setInterval or setTimeout usage",
+      "Description": "The setInterval() and setTimeout() functions take either a function or a string as their first argument. When a string is provided as the first argument, both of these functions act as eval."
+    },
+    {
+      "Value": "(?msi)(?:<script[^>]*>)(?:(?!</?script>).)*(?P<Keyword>(console\\.log)\\s*\\()(?:(?!</?script>).)*(?:</script>)",
+      "Label": "console.log usage",
+      "Description": "Consider avoiding console.log with information not useful for end-users."
+    },
+    {
+      "Value": "(?msi)<(((a|link)[^>]*href=)|((script|img)[^>]*src=)|((meta)[^>]*content=))('|\")(?P<Keyword>http://[^'\"]*)('|\")",
+      "Label": "http hyperlink with no SSL",
+      "Description": "Consider avoiding single HTTP links in the page. Prefer using HTTPS."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+import sys
+import requests
+import json
+
+def get_cve_info(product, version):
+
+product_name = product
+product_version = version
+
+url = f"https://services.nvd.nist.gov/rest/json/cves/2.0?product={product_name}&version={product_version}"
+
+response = requests.get(url)
+
+    if response.status_code == 200:
+        data = json.loads(response.content)
+        if data["result"]["totalResults"] > 0:
+            print(f"Nombre total de vulnérabilités trouvées: {data['result']['totalResults']}")
+            for cve in data["result"]["CVE_Items"]:
+                print(f"ID CVE: {cve['cve']['CVE_data_meta']['ID']}")
+                print(f"Description: {cve['cve']['description']['description_data'][0]['value']}")
+                print(f"Date de publication: {cve['publishedDate']}")
+                print(f"Date de dernière modification: {cve['lastModifiedDate']}")
+                print("-----")
+        else:
+            print("Aucune vulnérabilité trouvée pour ce produit et cette version.")
+    else:
+        print("Une erreur s'est produite lors de la récupération des données.")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: python script.py <product> <version>")
+        sys.exit(1)
+
+    product = sys.argv[1]
+    version = sys.argv[2]
+
+    get_cve_info(product, version)
