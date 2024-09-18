@@ -165,17 +165,21 @@ if response.status_code == 200:
 # Documentation
     print(f"Documentation :")
     print(f"<@><DOCUMENTATION> :", file=f)
+    #CVSS NIST
     cvss_score_max = 0
     cvss_lien_max = ""
-    cvss_score="??"
-    cvss_score_texte_max="??"
+    cvss_CNA_lien_max = ""
+    cvss_score="0"
+    cvss_score_texte_max="0"
     cvss_num_score = 0
+    # CVSS CNA
+    cvss_cna_score_max = 0
     table_content = []
     table_content.append({
         "CVE": 'CVE',
         "URL": 'URL',
         "CVSS_Score_NVD": 'CVSS score NVD',
-	"CVSS_Score_CNA" : 'CVSS score CNA',
+	    "CVSS_Score_CNA" : 'CVSS score CNA',
         "Vendor": 'Vendor',
         "Product": 'Product',
         "CVSS_Num_score": 0,
@@ -197,9 +201,18 @@ if response.status_code == 200:
         response = requests.get(url)
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, 'html.parser')
-            score = soup.find('a', class_='label')
-            if score:
-                cvss_score=score.get_text(strip=True)    
+            #score = soup.find('a', class_='label')
+            # Trouver l'élément <a> avec l'attribut data-testid="vuln-cvss3-cna-panel-score"
+            a_tag = soup.find('a', {'data-testid': 'vuln-cvss3-panel-score'})
+            # Trouver l'élément <a> avec data-testid="vuln-cvss4-cna-panel-score"
+            if a_tag:
+                continue
+            else:
+                a_tag = soup.find('a', {'data-testid': 'vuln-cvss4-cna-panel-score'})
+            
+            # Extraction du score
+            if a_tag:
+                cvss_score=a_tag.text.split()[0]    
                 if est_decimal(cvss_score.split()[0]):
                     cvss_num_score = float(cvss_score.split()[0])
                 else:
@@ -212,12 +225,24 @@ if response.status_code == 200:
             #score = soup.find('a', class_='label')
             #cvss_num_score_cna= float(cvss_score.split()[1])
             # Utilisation d'une expression régulière pour extraire la valeur CVSS du CNA
+            print("La valeur CVSS NVD est :", cvss_num_score)
             html_str = str(soup)
-            match = re.search(r'<a .*?>(\d+\.\d+)', html_str)
+            # Trouver l'élément <a> avec l'attribut data-testid="vuln-cvss3-cna-panel-score"
+            a_tag = soup.find('a', {'data-testid': 'vuln-cvss3-cna-panel-score'})
+            # Extraction du score
+            #if a_tag:
+            #    score_text = a_tag.text.split()[0]
+            #    print("CVSS CNA :",score_text)  
+
+            #match = re.search(r'<a .*?>(\d+\.\d+)', html_str)
             cvss_value = "0"
-            if match:
-                cvss_value = match.group(1)
-                print("La valeur CVSS est :", cvss_value)
+            if a_tag:
+                cvss_value = a_tag.text.split()[0]
+                print("La valeur CVSS CNA est :", cvss_value)
+                if float(cvss_value) > float(cvss_cna_score_max) :
+                    cvss_cna_score_max =cvss_value
+                    cvss_CNA_lien_max = cve_info['URL'] 
+
             else:
                 print("Aucune correspondance trouvée.")
 
@@ -278,7 +303,7 @@ if response.status_code == 200:
             table_content.append({
                 "CVE": cve_info['CVE'],
                 "URL": cve_info['URL'],
-                "CVSS_Score_NVD": cvss_score,
+                "CVSS_Score_NVD": str(cvss_num_score),
                 "CVSS_Score_CNA": cvss_value,
                 "Vendor": vendor_value,
                 "Product": product_value,
@@ -333,7 +358,12 @@ if response.status_code == 200:
     print(separator_line, file=f)
             
 #    print(f"Score max : {cvss_score_max}, score_texte : {cvss_score_texte_max}, CVSS : {cvss_lien_max}")
-    print(f"<@><SCORE MAX> {cvss_score_max} <@>, score_texte : {cvss_score_texte_max}, CVSS : {cvss_lien_max}", file=f)
+    if float(cvss_cna_score_max)> float(cvss_score_max):
+        print(f"<@><SCORE MAX> {cvss_cna_score_max} <@>, score_texte : {cvss_score_texte_max}, CVSS : {cvss_CNA_lien_max}", file=f)
+    else:
+            print(f"<@><SCORE MAX> {cvss_score_max} <@>, score_texte : {cvss_score_texte_max}, CVSS : {cvss_lien_max}", file=f)
+    print(f"<@><SCORE NIST MAX> {cvss_score_max} <@>, score_texte : {cvss_score_texte_max}, CVSS : {cvss_lien_max}", file=f)
+    print(f"<@><SCORE CNA MAX> {cvss_cna_score_max} <@>, score_texte : {cvss_score_texte_max}, CVSS : {cvss_CNA_lien_max}", file=f)
 
 #    print(f"Documentation : {Documentation}")
 else:

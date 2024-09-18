@@ -1,38 +1,20 @@
 Traitement AVIS CERT
-<TITRE> : [AVI 2024-0538] Multiples vulnérabilités dans Tenable Identity Exposure<@>
-<URL AVIS> : https://www.cert.ssi.gouv.fr/avis/CERTFR-2024-AVI-0538<@>
-<TEXTE AVIS> : 24-AVI-0538<@>
-<RESUME> : De multiples vulnérabilités ont été découvertes dans Tenable Identity Exposure. Certaines d'entre elles permettent à un attaquant de provoquer une élévation de privilèges, un déni de service à distance et un contournement de la politique de sécurité.<@>
+<TITRE> : [AVI 2024-0762] Multiples vulnérabilités dans les produits Citrix<@>
+<URL AVIS> : https://www.cert.ssi.gouv.fr/avis/CERTFR-2024-AVI-0762<@>
+<TEXTE AVIS> : 24-AVI-0762<@>
+<RESUME> : De multiples vulnérabilités ont été découvertes dans les produits Citrix. Elles permettent à un attaquant de provoquer une élévation de privilèges.<@>
 <RISQUES> : 
 <@><SYSTEMES AFFECTES> : 
-Identity Exposure versions antérieures à 3.59.5
+Citrix Workspace app versions antérieures à 2402 CU1 LTSR pour Windows
+Citrix Workspace app versions antérieures à 2405 pour Windows
 <@><SOLUTION> : 
 <@><DOCUMENTATION> :
-+----------------+-------------------------------------------------+----------------+----------------+------------+---------+------------------------------------------------------------------------------------------------------------+
-| CVE            | URL                                             | CVSS score NVD | CVSS score CNA | Vendor     | Product | Versions                                                                                                   |
-+----------------+-------------------------------------------------+----------------+----------------+------------+---------+------------------------------------------------------------------------------------------------------------+
-| CVE-2023-0464  | https://www.cve.org/CVERecord?id=CVE-2023-0464  | N/A            | 7.5            | OpenSSL    | OpenSSL | 3.1.0 Less than 3.1.1,3.0.0 Less than 3.0.9,1.1.1 Less than 1.1.1u,1.0.2 Less than 1.0.2zh,                |
-| CVE-2023-0465  | https://www.cve.org/CVERecord?id=CVE-2023-0465  | N/A            | 5.3            | OpenSSL    | OpenSSL | 3.1.0 Less than 3.1.1,3.0.0 Less than 3.0.9,1.1.1 Less than 1.1.1u,1.0.2 Less than 1.0.2zh,                |
-| CVE-2023-0466  | https://www.cve.org/CVERecord?id=CVE-2023-0466  | N/A            | 5.3            | OpenSSL    | OpenSSL | 3.1.0 Less than 3.1.1,3.0.0 Less than 3.0.9,1.1.1 Less than 1.1.1u,1.0.2 Less than 1.0.2zh,                |
-| CVE-2023-2650  | https://www.cve.org/CVERecord?id=CVE-2023-2650  | N/A            | 6.5            | OpenSSL    | OpenSSL | 3.1.1 Less than 3.1.1,3.0.0 Less than 3.0.9,1.1.1 Less than 1.1.1u,1.0.2 Less than 1.0.2zh,                |
-| CVE-2023-3446  | https://www.cve.org/CVERecord?id=CVE-2023-3446  | N/A            | 5.3            | OpenSSL    | OpenSSL | 3.1.0 Less than 3.1.2,3.0.0 Less than 3.0.10,1.1.1 Less than 1.1.1v,1.0.2 Less than 1.0.2zi,               |
-| CVE-2023-3817  | https://www.cve.org/CVERecord?id=CVE-2023-3817  | N/A            | 5.3            | OpenSSL    | OpenSSL | 3.1.0 Less than 3.1.2,3.0.0 Less than 3.0.10,1.1.1 Less than 1.1.1v,1.0.2 Less than 1.0.2zi,               |
-| CVE-2023-46218 | https://www.cve.org/CVERecord?id=CVE-2023-46218 | N/A            | 6.5            | curl       | curl    | 8.4.0 Less than N/A,7.46.0 Less than 7.46.0,                                                               |
-| CVE-2023-46219 | https://www.cve.org/CVERecord?id=CVE-2023-46219 | N/A            | 5.3            | curl       | curl    | 8.4.0 Less than N/A,7.84.0 Less than 7.84.0,                                                               |
-| CVE-2023-4807  | https://www.cve.org/CVERecord?id=CVE-2023-4807  | N/A            | 7.8            | OpenSSL    | OpenSSL | 3.1.0 Less than 3.1.3,3.0.0 Less than 3.0.11,1.1.1 Less than 1.1.1w,                                       |
-| CVE-2023-5678  | https://www.cve.org/CVERecord?id=CVE-2023-5678  | N/A            | 5.3            | OpenSSL    | OpenSSL | 1.0.2 Less than 1.0.2zj,1.1.1 Less than 1.1.1x,3.0.0 Less than 3.0.13,3.1.0 Less than 3.1.5,               |
-| CVE-2024-0727  | https://www.cve.org/CVERecord?id=CVE-2024-0727  | N/A            | 5.5            | OpenSSL    | OpenSSL | 3.2.0 Less than 3.2.1,3.1.0 Less than 3.1.5,3.0.0 Less than 3.0.13,1.1.1 Less than 1.1.1x,                 |
-| CVE-2024-2004  | https://www.cve.org/CVERecord?id=CVE-2024-2004  | N/A            | 3.5            | curl       | curl    | 8.6.0 Less than N/A,8.5.0 Less than N/A,8.4.0 Less than N/A,8.3.0 Less than N/A,                           |
-| CVE-2024-21892 | https://www.cve.org/CVERecord?id=CVE-2024-21892 | N/A            | 7.5            | Node.js    | Node.js | 21.6.0 Less than N/A,20.11.0 Less than N/A,18.19.0 Less than N/A,                                          |
-| CVE-2024-22017 | https://www.cve.org/CVERecord?id=CVE-2024-22017 | N/A            | 7.3            | Node.js    | Node.js | 18.18.0 Less than N/A,20.4.0 Less than N/A,21.6.1 Less than N/A,                                           |
-| CVE-2024-22025 | https://www.cve.org/CVERecord?id=CVE-2024-22025 | N/A            | 6.5            | Node.js    | Node.js | 20.11.0 Less than N/A,21.6.1 Less than N/A,18.19.0 Less than N/A,                                          |
-| CVE-2024-2398  | https://www.cve.org/CVERecord?id=CVE-2024-2398  | N/A            | 8.6            | curl       | curl    | 8.6.0 Less than N/A,8.5.0 Less than N/A,8.4.0 Less than N/A,8.3.0 Less than N/A,                           |
-| CVE-2024-27983 | https://www.cve.org/CVERecord?id=CVE-2024-27983 | N/A            | 8.2            | Node.js    | Node    | 18.20.0 Less than N/A,20.12.0 Less than N/A,21.7.1 Less than N/A,                                          |
-| CVE-2024-32974 | https://www.cve.org/CVERecord?id=CVE-2024-32974 | N/A            | 7.5            | envoyproxy | envoy   | >= 1.30.0, <= 11.30.1 Less than N/A,>= 1.29.0, <= 1.29.4 Less than N/A,>= 1.28.0, <= 1.28.3 Less than N/A, |
-| CVE-2024-32975 | https://www.cve.org/CVERecord?id=CVE-2024-32975 | N/A            | 7.5            | envoyproxy | envoy   | >= 1.30.0, <= 11.30.1 Less than N/A,>= 1.29.0, <= 1.29.4 Less than N/A,>= 1.28.0, <= 1.28.3 Less than N/A, |
-| CVE-2024-32976 | https://www.cve.org/CVERecord?id=CVE-2024-32976 | N/A            | 7.5            | envoyproxy | envoy   | >= 1.30.0, <= 11.30.1 Less than N/A,>= 1.29.0, <= 1.29.4 Less than N/A,>= 1.28.0, <= 1.28.3 Less than N/A, |
-| CVE-2024-34362 | https://www.cve.org/CVERecord?id=CVE-2024-34362 | N/A            | 5.9            | envoyproxy | envoy   | >= 1.30.0, <= 11.30.1 Less than N/A,>= 1.29.0, <= 1.29.4 Less than N/A,>= 1.28.0, <= 1.28.3 Less than N/A, |
-| CVE-2024-34363 | https://www.cve.org/CVERecord?id=CVE-2024-34363 | N/A            | 7.5            | envoyproxy | envoy   | >= 1.30.0, <= 11.30.1 Less than N/A,>= 1.29.0, <= 1.29.4 Less than N/A,>= 1.28.0, <= 1.28.3 Less than N/A, |
-| CVE-2024-34364 | https://www.cve.org/CVERecord?id=CVE-2024-34364 | N/A            | 6.5            | envoyproxy | envoy   | >= 1.30.0, <= 11.30.1 Less than N/A,>= 1.29.0, <= 1.29.4 Less than N/A,>= 1.28.0, <= 1.28.3 Less than N/A, |
-+----------------+-------------------------------------------------+----------------+----------------+------------+---------+------------------------------------------------------------------------------------------------------------+
-<@><SCORE MAX> 0 <@>, score_texte : ??, CVSS : 
++---------------+------------------------------------------------+----------------+----------------+--------+----------------------------------+---------------------------------------------------------------------------------------------------+
+| CVE           | URL                                            | CVSS score NVD | CVSS score CNA | Vendor | Product                          | Versions                                                                                          |
++---------------+------------------------------------------------+----------------+----------------+--------+----------------------------------+---------------------------------------------------------------------------------------------------+
+| CVE-2024-7889 | https://www.cve.org/CVERecord?id=CVE-2024-7889 | 7.0            | 0              | Citrix | Citrix Workspace app for Windows | Current Release (CR) Less than 2405,Long Term Service Release (LTSR) Less than 2402 LTSR CU1,     |
+| CVE-2024-7890 | https://www.cve.org/CVERecord?id=CVE-2024-7890 | 5.4            | 0              | Citrix | Citrix Workspace app for Windows | Current Release (CR) 0 Less than 2405,Long Term Service Release (LTSR) 0 Less than 2402 LTSR CU1, |
++---------------+------------------------------------------------+----------------+----------------+--------+----------------------------------+---------------------------------------------------------------------------------------------------+
+<@><SCORE MAX> 7.0 <@>, score_texte : 7.0, CVSS : https://www.cve.org/CVERecord?id=CVE-2024-7889
+<@><SCORE NIST MAX> 7.0 <@>, score_texte : 7.0, CVSS : https://www.cve.org/CVERecord?id=CVE-2024-7889
+<@><SCORE CNA MAX> 0 <@>, score_texte : 7.0, CVSS : 
