@@ -205,9 +205,8 @@ if response.status_code == 200:
             # Trouver l'élément <a> avec l'attribut data-testid="vuln-cvss3-cna-panel-score"
             a_tag = soup.find('a', {'data-testid': 'vuln-cvss3-panel-score'})
             # Trouver l'élément <a> avec data-testid="vuln-cvss4-cna-panel-score"
-            if a_tag:
-                continue
-            else:
+            #print ("a-tag :",a_tag)
+            if a_tag is None:
                 a_tag = soup.find('a', {'data-testid': 'vuln-cvss4-cna-panel-score'})
             
             # Extraction du score
